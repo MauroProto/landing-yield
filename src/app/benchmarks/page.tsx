@@ -42,6 +42,41 @@ export const metadata: Metadata = {
 
 export default function BenchmarksPage() {
   const data = getBenchmarkDashboardData();
+  if (!data) {
+    return (
+      <main className="min-h-dvh bg-[#f8f6f1] text-[#171717]">
+        <header className="border-b border-[#ded9cf] bg-[#151515] text-white">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+            <Link
+              href="/"
+              className="rounded-sm text-lg font-semibold leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45"
+            >
+              yieldOS
+            </Link>
+          </div>
+        </header>
+        <section className="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#7c7669]">
+            yieldOS benchmark dashboard
+          </p>
+          <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Benchmark evidence not bundled with this deployment
+          </h1>
+          <p className="mt-5 text-base leading-7 text-[#4a4538] sm:text-lg sm:leading-8">
+            This page renders local-review benchmark JSON that ships separately
+            from the landing build. Run the benchmark suite locally or attach
+            the evidence files to the deployment to view the dashboard.
+          </p>
+          <Link
+            href="/"
+            className="mt-8 inline-flex items-center rounded-md bg-[#151515] px-4 py-2 text-sm font-medium text-white hover:bg-black"
+          >
+            Back to landing
+          </Link>
+        </section>
+      </main>
+    );
+  }
   const totalUnsafe =
     data.deterministic.public.totalTasks + data.deterministic.private.totalTasks;
   const totalStopped =

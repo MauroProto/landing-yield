@@ -214,15 +214,36 @@ function summarizeCoverageCalibration(report: CoverageReport) {
   };
 }
 
+function tryReadAll() {
+  try {
+    return {
+      publicReal: readReport<RealRepoReport>(reports.publicReal),
+      privateReal: readReport<RealRepoReport>(reports.privateReal),
+      falsePositive: readReport<FalsePositiveReport>(reports.falsePositive),
+      cost: readReport<CostReport>(reports.cost),
+      coverage: readReport<CoverageReport>(reports.coverage),
+      expanded: readReport<ModelReport>(reports.expanded),
+      premium: readReport<ModelReport>(reports.premium),
+      scanners: readReport<ScannerReport>(reports.scanners),
+    };
+  } catch {
+    return null;
+  }
+}
+
 export function getBenchmarkDashboardData() {
-  const publicReal = readReport<RealRepoReport>(reports.publicReal);
-  const privateReal = readReport<RealRepoReport>(reports.privateReal);
-  const falsePositive = readReport<FalsePositiveReport>(reports.falsePositive);
-  const cost = readReport<CostReport>(reports.cost);
-  const coverage = readReport<CoverageReport>(reports.coverage);
-  const expanded = readReport<ModelReport>(reports.expanded);
-  const premium = readReport<ModelReport>(reports.premium);
-  const scanners = readReport<ScannerReport>(reports.scanners);
+  const reportsData = tryReadAll();
+  if (!reportsData) return null;
+  const {
+    publicReal,
+    privateReal,
+    falsePositive,
+    cost,
+    coverage,
+    expanded,
+    premium,
+    scanners,
+  } = reportsData;
 
   return {
     claim: {
@@ -271,4 +292,4 @@ export function getBenchmarkDashboardData() {
   };
 }
 
-export type BenchmarkDashboardData = ReturnType<typeof getBenchmarkDashboardData>;
+export type BenchmarkDashboardData = NonNullable<ReturnType<typeof getBenchmarkDashboardData>>;

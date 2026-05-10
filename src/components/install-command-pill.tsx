@@ -32,10 +32,8 @@ export function InstallCommandPill({ command }: InstallCommandPillProps) {
   const [copied, setCopied] = useState(false);
   const resetTimerRef = useRef<number | null>(null);
 
-  const compactCommand = command.replace(
-    "https://github.com/yieldos/yieldos/releases/download/yieldos--v0.12.0",
-    "...",
-  );
+  const compactCommand =
+    "curl -fsSLO .../install.sh && shasum -c && sh install.sh";
 
   useEffect(() => {
     return () => {
