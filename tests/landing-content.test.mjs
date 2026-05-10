@@ -44,7 +44,7 @@ test("home page pivots to the yieldOS source-of-truth story", () => {
     "Oracle-driven security harness",
     "blocks policy-covered risky actions before sensitive steps",
     "Install yieldOS",
-    "curl -fsSLO https://github.com/yieldos/yieldos/releases/download/yieldos--v0.12.0/install.sh",
+    "curl -fsSL https://raw.githubusercontent.com/platanus-hack/platanus-hack-26-ar-team-10/main/install.sh | sh -s -- --source platanus-hack/platanus-hack-26-ar-team-10",
     "AgentsInstallButton",
     "View README.md",
     "External defense",
