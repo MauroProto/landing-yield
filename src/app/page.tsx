@@ -7,7 +7,6 @@ import { MotionReveal } from "@/components/motion-reveal";
 import { OracleBenchmarks } from "@/components/oracle-benchmarks";
 import { ScrollAwareHeader } from "@/components/scroll-aware-header";
 import { ViewReadmeButton } from "@/components/view-readme-button";
-import Link from "next/link";
 
 const installCommand =
   "curl -fsSL https://raw.githubusercontent.com/platanus-hack/platanus-hack-26-ar-team-10/main/install.sh | sh -s -- --source platanus-hack/platanus-hack-26-ar-team-10";
@@ -174,19 +173,11 @@ export default function Home() {
           </MotionReveal>
 
           <MotionReveal className="mt-6 sm:mt-8" delay={0.15}>
-            <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-3xl text-xs leading-5 text-zinc-500 sm:text-[13px] sm:leading-6">
-                Time is wall-clock latency per check. Cost is an
-                assumption-based routing estimate from the local-review reports.
-                The oracle path does not call a model for deterministic checks.
-              </p>
-              <Link
-                href="/benchmarks"
-                className="inline-flex w-fit items-center justify-center rounded-md border border-zinc-300 bg-white px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950/20"
-              >
-                Full dashboard
-              </Link>
-            </div>
+            <p className="max-w-3xl text-xs leading-5 text-zinc-500 sm:text-[13px] sm:leading-6">
+              Time is wall-clock latency per check. Cost is an
+              assumption-based routing estimate from the local-review reports.
+              The oracle path does not call a model for deterministic checks.
+            </p>
           </MotionReveal>
         </div>
       </section>

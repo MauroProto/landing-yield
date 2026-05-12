@@ -221,8 +221,6 @@ test("benchmarks page exposes the presentation dashboard", () => {
   const source = `${homePage}\n${page}\n${data}`;
 
   [
-    'href="/benchmarks"',
-    "Full dashboard",
     "yieldOS benchmark dashboard",
     "Strong guardrail, honest limits",
     "Prevention without broad false positives",
