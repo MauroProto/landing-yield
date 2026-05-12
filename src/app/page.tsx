@@ -12,7 +12,7 @@ import Link from "next/link";
 const installCommand =
   "curl -fsSL https://raw.githubusercontent.com/platanus-hack/platanus-hack-26-ar-team-10/main/install.sh | sh -s -- --source platanus-hack/platanus-hack-26-ar-team-10";
 const repoUrl =
-  "https://github.com/yieldos/yieldos";
+  "https://github.com/platanus-hack/platanus-hack-26-ar-team-10";
 const readmeUrl = `${repoUrl}#readme`;
 const heroTitle = "Unlock safe coding for technical and non-technical talent";
 
